@@ -14,6 +14,8 @@ print('''Hello and welcome to the phone list, available commands:
   delete - delete a contact
   list   - list all phone numbers
   quit   - quit the program
+  save   - saves new contacts
+  help   - list all commands
 ''')
 
 def read_phonelist(C):
@@ -38,6 +40,8 @@ def save_phonelist(C):
         print("No changes!")
     cur.close()
 
+    
+
 while True: ## REPL - Read Execute Program Loop
     cmd = input("Command: ").upper()
     if cmd == "LIST":
@@ -54,5 +58,17 @@ while True: ## REPL - Read Execute Program Loop
         exit()
     elif cmd == 'REMOVE':
         print('Command not recognized')
+    elif cmd == 'SAVE':
+        save_phonelist(conn)
+    elif cmd == 'HELP':
+       print('''Hello and welcome to the phone list, available commands:
+  add    - add a phone number
+  delete - delete a contact
+  list   - list all phone numbers
+  quit   - quit the program
+  save   - saves new contacts
+  help   - list all commands
+''')
+        
 
 
